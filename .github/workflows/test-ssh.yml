@@ -9,7 +9,7 @@ jobs:
         uses: appleboy/ssh-action@v0.1.10
         with:
           debug: true
-          host: ${{ secrets.PROXMOX_HOST }}
+          host: njs.bellox.eu
           username: ${{ secrets.PROXMOX_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
