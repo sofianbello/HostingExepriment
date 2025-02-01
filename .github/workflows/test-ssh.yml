@@ -8,6 +8,7 @@ jobs:
       - name: SSH Check
         uses: appleboy/ssh-action@v0.1.10
         with:
+          debug: true
           host: ${{ secrets.PROXMOX_HOST }}
           username: ${{ secrets.PROXMOX_USER }}
           key: ${{ secrets.SSH_KEY }}
