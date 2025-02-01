@@ -1,22 +1,17 @@
 name: Test SSH Connection
-
-on:
-  workflow_dispatch:  # Manueller Trigger
+on: [workflow_dispatch]
 
 jobs:
-  test-ssh:
+  test-connection:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Test SSH Connection
+      - name: SSH Check
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.PROXMOX_HOST }}
           username: ${{ secrets.PROXMOX_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            echo "SSH connection successful!"
-            hostname
-            whoami
+            echo "Erfolgreich verbunden!"
+            uname -a
+            docker --version
